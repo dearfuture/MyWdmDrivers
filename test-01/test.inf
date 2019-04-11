@@ -1,0 +1,56 @@
+[Version]
+Signature="$WINDOWS NT$"   ;CHICAGO
+Class=myhardwareclass
+ClassGUID={ECA0887F-BADE-43A2-A37F-E9058393A138}
+DriverVer=9/27/2018,0.0.0.1
+Provider=myself
+
+[ClassInstall32]
+AddReg=Add_class
+
+[Add_class]
+HKR,,,,%DeviceClassName%
+HKR,,Icon,,"-5"
+
+
+[SourceDisksNames]
+1=%diskdesc%,
+
+[SourceDisksFiles]
+helloworld.sys=1
+
+[DestinationDirs]
+DefaultDestDir=12
+
+[Manufacturer]
+"mysoft"=mfg,NTX86
+
+[mfg.NTX86]
+"hello device"=My_Install,PCI\VEN_8888&DEV_8888
+
+[My_Install.NTX86]
+CopyFiles=file_section
+AddReg=reg_section
+
+[My_Install.NTX86.Services]
+AddService="myservice",0x2,service_section
+
+[service_section]
+DisplayName=%desc%
+ErrorControl=1
+ServiceBinary=%12%\helloworld.sys
+StartType=3;0,1,2,3,4
+ServiceType=1
+
+
+[reg_section]
+HKLM,"SYSTEM\CurrentControlSet\services\ACPI\Parameters","number1",0,"this is a test"
+HKLM,"SYSTEM\CurrentControlSet\services\ACPI\Parameters","number2",0x10001,1000
+
+[file_section]
+helloworld.sys
+
+[Strings]
+desc="myservice"
+diskdesc="hello mydisk!"
+DeviceClassName="myhardwareclass"

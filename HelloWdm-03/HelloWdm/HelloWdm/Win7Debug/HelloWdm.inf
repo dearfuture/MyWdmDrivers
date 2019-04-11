@@ -1,0 +1,57 @@
+;
+; HelloWdm.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=myhardwareclass
+ClassGuid={2642E3C4-D62F-47A0-9527-42EE268E7E1A}
+Provider=myself
+DriverVer=10/09/2018,21.4.40.537
+CatalogFile=hellowdm.cat
+[DestinationDirs]
+DefaultDestDir = 12
+
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+HelloWdm.sys=1
+
+[ClassInstall32]
+AddReg=Add_class
+
+[Add_class]
+HKR,,,,%ClassName%
+HKR,,Icon,,"-5"
+
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTx86
+
+[Standard.NTx86]
+
+"hello device"=My_Install,PCI\VEN_8888&DEV_8888
+
+[My_Install.NTx86]
+CopyFiles=file_section
+
+
+[My_Install.NTx86.Services]
+AddService="hellowdm",0x2,service_section
+
+[service_section]
+DisplayName="hellowdm"
+ErrorControl=1
+ServiceType=1
+StartType=3
+ServiceBinary=%12%\hellowdm.sys
+
+[file_section]
+HelloWdm.sys
+
+[Strings]
+ManufacturerName="mysoft"
+ClassName="myhardwareclass"
+DiskName="HelloWdm Source Disk"

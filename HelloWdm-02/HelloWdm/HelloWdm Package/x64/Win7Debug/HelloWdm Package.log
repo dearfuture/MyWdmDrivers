@@ -1,0 +1,25 @@
+﻿生成启动时间为 2018/10/8 19:27:12。
+     1>项目“C:\Users\Administrator\documents\visual studio 2013\Projects\HelloWdm\HelloWdm Package\HelloWdm Package.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>Inf2Cat:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\inf2cat.exe /os:7_x64 /USELOCALTIME /driver:"C:\Users\Administrator\documents\visual studio 2013\Projects\HelloWdm\x64\Win7Debug\HelloWdm Package\\" 
+         ........................
+         Signability test complete.
+         
+         Errors:
+         None
+         
+         Warnings:
+         None
+         
+         Catalog generation complete.
+         C:\Users\Administrator\documents\visual studio 2013\Projects\HelloWdm\x64\Win7Debug\HelloWdm Package\hellowdm.cat
+       DriverTestSign:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\signtool.exe sign /ph /sha1 "BA7F6629BF02A612739C7375F5FD28B6D0CF19E1" 
+         Done Adding Additional Store
+         Successfully signed: C:\Users\Administrator\documents\visual studio 2013\Projects\HelloWdm\x64\Win7Debug\HelloWdm Package\hellowdm.cat
+         
+     1>已完成生成项目“C:\Users\Administrator\documents\visual studio 2013\Projects\HelloWdm\HelloWdm Package\HelloWdm Package.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.76
